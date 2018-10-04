@@ -59,20 +59,35 @@ state = {
       ]
     }
 
+    // after we gt the user id, we pass it to the func
+    deleteContact = (id) => {
+      const {contacts} = this.state
+      // we cant use setState alone because we're removing something
+
+      const newContacts = contacts.filter(contact =>
+        contact.id != id
+        )
+
+        this.setState({
+          contacts: newContacts
+        })
+    }
+
   render() {
     const {contacts} = this.state
 
     return (
-      <div>
+      <React.Fragment>
         {contacts.map(contact => 
+        // we need the contact id in order to be able to remove it
+        // thats why we use bind
          <Contact 
             key = {contact.id}
-            name = {contact.name}
-            email = {contact.email}
-            phone = {contact.phone}
+            contact = {contact}
+            deleteClickHandler = {this.deleteContact.bind(this, contact.id)}
          />
         )}
-      </div>
+      </React.Fragment>
     )
   }
 }

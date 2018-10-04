@@ -38,9 +38,9 @@ Header.PropTypes = {
 }
 
 // stylying
-const headingStyle = {
-    color: 'blue',
-    fontSize: '100px'
-}
+// const headingStyle = {
+//     color: 'blue',
+//     fontSize: '100px'
+// }
 
 export default Header
